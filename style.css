@@ -1,0 +1,99 @@
+/* עיצוב בסיסי לגוף הדף */
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    direction: rtl; /* הגדרת כיוון מימין לשמאל */
+}
+
+/* עיצוב התפריט העליון */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #1e1e1e;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* סידור הקישורים במרכז */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* עיצוב הקישורים */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+}
+
+/* שינוי צבע ורקע בהובר */
+nav a:hover {
+    color: #00d4ff;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* פס עליון ותחתון מוסתרים בהתחלה */
+nav a::before,
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(to right, #00d4ff, #ff00d4);
+    transition: all 0.4s ease;
+    transform-origin: center;
+}
+
+/* מיקום הפס העליון והתחתון */
+nav a::before {
+    top: 0;
+}
+nav a::after {
+    bottom: 0;
+}
+
+/* אפקט פתיחה וסגירה מהמרכז */
+nav a:hover::before,
+nav a:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+/* תוכן מרכזי ממורכז גם אנכית וגם אופקית */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* ממורכז אנכית */
+    align-items: center;     /* ממורכז אופקית */
+    margin-top: 80px;        /* כדי שהתפריט לא יסתיר את התוכן */
+    padding: 20px;
+}
+
+main h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+main p {
+    font-size: 1.2em;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #cccccc;
+}
